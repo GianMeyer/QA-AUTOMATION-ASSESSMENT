@@ -10,11 +10,13 @@ import org.openqa.selenium.support.ui.Select;
 public class WebTestCase {
 
 	public static void main(String[] args) {
-		
+		//Creating an instance of the firefox driver.
 		WebDriver wd = new FirefoxDriver();		
        
+		//Navigating to the url.
 		wd.get("http://www.way2automation.com/angularjs-protractor/webtables/");		
 		
+		//Making the thread sleep for 5 seconds.
 		try 
 		{
 			Thread.sleep(5000);
@@ -24,10 +26,12 @@ public class WebTestCase {
 			e.printStackTrace();
 		}
 		
+		//i used the xpath to find the elements location as there where no id's available.
 		WebElement tableHeaders = wd.findElement(By.xpath("/html/body/table/thead/tr[3]"));
 		if(tableHeaders.isDisplayed())
 		{
 			WebElement addUserButton = wd.findElement(By.xpath("/html/body/table/thead/tr[2]/td/button"));		
+			//This is used to click an object.
 			addUserButton.click();
 			
 			try 
@@ -40,9 +44,11 @@ public class WebTestCase {
 			}
 			
 			WebElement addUserHeader = wd.findElement(By.xpath("/html/body/div[3]/div[1]/h3"));
+			//Validating that the header is displayed.
 			if(addUserHeader.isDisplayed())
 			{
 				WebElement firstNameTextbox = wd.findElement(By.xpath("/html/body/div[3]/div[2]/form/table/tbody/tr[1]/td[2]/input"));
+				//This is used to enter text into a textbox.
 				firstNameTextbox.sendKeys("FName1");
 				
 				WebElement surnameTextbox = wd.findElement(By.xpath("/html/body/div[3]/div[2]/form/table/tbody/tr[2]/td[2]/input"));
@@ -58,6 +64,7 @@ public class WebTestCase {
 				CompanyAAARadio.click();				
 				
 				WebElement roleCombobox = wd.findElement(By.xpath("/html/body/div[3]/div[2]/form/table/tbody/tr[6]/td[2]/select"));
+				//This is used to select the dropdown option by the value.
 				Select roleSelect = new Select(roleCombobox);
 				roleSelect.selectByValue("Admin");
 				
@@ -70,6 +77,7 @@ public class WebTestCase {
 				WebElement saveButton = wd.findElement(By.xpath("html/body/div[3]/div[3]/button[2]"));				
 				WebElement closeButton = wd.findElement(By.xpath("/html/body/div[3]/div[3]/button[1]"));
 				
+				//Validating before clicking the button.
 				if(saveButton.isEnabled())
 				{
 					saveButton.click();
