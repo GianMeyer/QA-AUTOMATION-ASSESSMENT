@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "c740a282-d07b-4d6a-a7d8-7437b953a9b7",
+		"name": "Dog-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "803de9e9-31a6-4918-b623-86e5e60b4d7c",
+			"name": "Get List of all breeds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bac80309-f2ae-457a-9031-00b5a3555f58",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"success\"] = jsonData.status === \"success\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://dog.ceo/api/breeds/list/all",
+					"protocol": "https",
+					"host": [
+						"dog",
+						"ceo"
+					],
+					"path": [
+						"api",
+						"breeds",
+						"list",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "48350fc0-b5e5-459e-b6d3-96f477e1f496",
+			"name": "Validate retriever is in the response",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fd5caef8-38e6-47cb-8419-0b5964183eae",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"retriever\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://dog.ceo/api/breeds/list/all",
+					"protocol": "https",
+					"host": [
+						"dog",
+						"ceo"
+					],
+					"path": [
+						"api",
+						"breeds",
+						"list",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "22866708-3d8c-43d7-8852-880654167a71",
+			"name": "Get List of retriever breeds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "41c8f168-9f3a-4b36-b18a-bc1dfa9e0218",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"success\"] = jsonData.status === \"success\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://dog.ceo/api/breed/retriever/list",
+					"protocol": "https",
+					"host": [
+						"dog",
+						"ceo"
+					],
+					"path": [
+						"api",
+						"breed",
+						"retriever",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "fc3d961e-9d29-4737-b6bd-a81eb792c582",
+			"name": "Validate golden is in the response",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9aabef97-b8a4-4f74-a06d-397356025def",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"golden\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://dog.ceo/api/breed/retriever/list",
+					"protocol": "https",
+					"host": [
+						"dog",
+						"ceo"
+					],
+					"path": [
+						"api",
+						"breed",
+						"retriever",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
